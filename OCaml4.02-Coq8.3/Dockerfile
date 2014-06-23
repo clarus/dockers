@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER Guillaume Claret <dev@clarus.me>
+MAINTAINER Guillaume Claret
 
 RUN apt-get update
 RUN apt-get install -y gcc make git
