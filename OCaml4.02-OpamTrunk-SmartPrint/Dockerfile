@@ -13,15 +13,6 @@ RUN ./configure
 RUN make world.opt
 RUN make install
 
-# Camlp4 4.02
-WORKDIR /root
-RUN git clone https://github.com/ocaml/camlp4.git
-WORKDIR /root/camlp4
-RUN git checkout 4.02
-RUN ./configure
-RUN make all
-RUN make install
-
 # Opam trunk
 WORKDIR /root
 RUN git clone https://github.com/ocaml/opam.git
