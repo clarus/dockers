@@ -10,4 +10,4 @@ RUN opam init
 RUN opam repo add coq https://github.com/clarus/opam-coq-repo.git
 
 # Concurrency library
-RUN opam install -y concurrency
+RUN opam install -y coq-concurrency
