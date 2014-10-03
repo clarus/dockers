@@ -6,18 +6,17 @@ RUN apt-get install -y gcc make git
 
 # OCaml 4.02
 WORKDIR /root
-RUN git clone https://github.com/ocaml/ocaml.git
-WORKDIR /root/ocaml
-RUN git checkout 4.02
+RUN apt-get install -y curl
+RUN curl -L https://github.com/ocaml/ocaml/archive/4.02.0.tar.gz |tar -xz
+WORKDIR /root/ocaml-4.02.0
 RUN ./configure
 RUN make world.opt
 RUN make install
 
 # Camlp4 4.02
 WORKDIR /root
-RUN git clone https://github.com/ocaml/camlp4.git
-WORKDIR /root/camlp4
-RUN git checkout 4.02
+RUN curl -L https://github.com/ocaml/camlp4/archive/4.02.0+1.tar.gz |tar -xz
+WORKDIR /root/camlp4-4.02.0-1
 RUN ./configure
 RUN make all
 RUN make install
@@ -27,5 +26,5 @@ WORKDIR /root
 RUN git clone https://github.com/coq/coq.git
 WORKDIR /root/coq
 RUN yes "" |./configure
-RUN make -j2
+RUN make -j6
 RUN make install
