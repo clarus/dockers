@@ -10,7 +10,7 @@ RUN opam init
 RUN opam install -y coq
 
 # The Coq repository
-RUN opam repo add coq https://github.com/clarus/opam-coq-repo.git
+RUN opam repo add coq-stable https://github.com/coq/repo-stable.git
 
 # Tests
 ENV OPAMJOBS 4
