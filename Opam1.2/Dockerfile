@@ -6,6 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y gcc make git
 RUN apt-get install -y curl ocaml
 RUN apt-get install -y m4 aspcud
+RUN apt-get install -y liblablgtk2-ocaml-dev
 
 # OPAM 1.2.0
 WORKDIR /root
@@ -16,6 +17,7 @@ RUN make lib-ext
 RUN make
 RUN make install
 RUN opam init
+ENV OPAMJOBS 4
 
 # Build OPAM documentation
 RUN opam install -y omd
