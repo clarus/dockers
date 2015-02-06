@@ -6,6 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y gcc make git
 RUN apt-get install -y curl
 RUN apt-get install -y m4 aspcud
+RUN apt-get install -y unzip
 
 # OCaml
 WORKDIR /root
@@ -22,7 +23,7 @@ RUN ./configure && make all && make install
 # Bench user
 RUN useradd --create-home bench
 USER bench
-ENV HOME /home/bench
+# ENV HOME /home/bench
 
 # OPAM 1.2.1-beta
 WORKDIR /home/bench
@@ -33,10 +34,9 @@ USER root
 RUN make install
 USER bench
 
-RUN apt-get install -y unzip
-
 # Clone the repo-stable.
 WORKDIR /home/bench
+RUN echo 1
 RUN git clone https://github.com/coq/repo-stable
 
 # Initialize OPAM.
